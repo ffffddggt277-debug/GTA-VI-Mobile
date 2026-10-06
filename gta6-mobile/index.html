@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>VC6 Mobile — открытый мир (фан-ориджинл)</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<!-- Загрузочный экран -->
+<div id="loader">
+  <div class="loader-logo">VC<span>6</span></div>
+  <div class="loader-sub">VOSS CITY · MOBILE EDITION</div>
+  <div class="loader-bar"><div id="loader-fill"></div></div>
+  <div id="loader-status">Генерация города…</div>
+  <button id="btn-start" class="hidden">▶ ИГРАТЬ</button>
+</div>
+
+<!-- HUD -->
+<div id="hud" class="hidden">
+  <div id="hud-top-left">
+    <div id="money">$0</div>
+    <div id="wanted-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+  </div>
+  <div id="hud-top-right">
+    <div id="fps">60 FPS</div>
+    <div id="quality-tag">QUALITY: HIGH</div>
+  </div>
+  <div id="minimap-wrap"><canvas id="minimap" width="150" height="150"></canvas></div>
+  <div id="speedo" class="hidden">
+    <div id="speed-val">0</div><div id="speed-unit">км/ч</div>
+  </div>
+  <div id="interact-hint" class="hidden">Нажмите ⏎ чтобы сесть/выйти</div>
+  <div id="mission-toast" class="hidden"></div>
+  <div id="healthbar"><div id="healthfill"></div></div>
+</div>
+
+<!-- Сенсорное управление -->
+<div id="touch-controls" class="hidden">
+  <div id="stick-base"><div id="stick-knob"></div></div>
+  <div id="btn-jump" class="tbtn">⤴</div>
+  <div id="btn-action" class="tbtn">⏎</div>
+  <div id="btn-fps" class="tbtn small">👁</div>
+</div>
+
+<script src="vendor/three.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/world/buildings.js"></script>
+<script src="js/world/roads.js"></script>
+<script src="js/world/nature.js"></script>
+<script src="js/world/lighting.js"></script>
+<script src="js/entities/player.js"></script>
+<script src="js/entities/vehicle.js"></script>
+<script src="js/entities/ped.js"></script>
+<script src="js/entities/npc.js"></script>
+<script src="js/systems/input.js"></script>
+<script src="js/systems/camera.js"></script>
+<script src="js/systems/physics.js"></script>
+<script src="js/systems/traffic.js"></script>
+<script src="js/systems/wanted.js"></script>
+<script src="js/systems/missions.js"></script>
+<script src="js/ui/hud.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
