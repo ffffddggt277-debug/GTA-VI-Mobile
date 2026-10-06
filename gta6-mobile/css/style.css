@@ -1,0 +1,58 @@
+/* VC6 Mobile — стили HUD и touch-управления */
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html,body { width:100%; height:100%; overflow:hidden; background:#000; font-family:'Segoe UI',Roboto,sans-serif; touch-action:none; }
+#game { position:fixed; inset:0; width:100%; height:100%; display:block; }
+.hidden { display:none !important; }
+
+/* Загрузчик */
+#loader { position:fixed; inset:0; z-index:50; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  background:linear-gradient(160deg,#12002b 0%,#3d0a5c 45%,#ff2d78 100%); color:#fff; }
+.loader-logo { font-size:96px; font-weight:900; font-style:italic; letter-spacing:-4px;
+  background:linear-gradient(90deg,#00e5ff,#ff2d78); -webkit-background-clip:text; background-clip:text; color:transparent;
+  text-shadow:0 0 40px rgba(255,45,120,.35); }
+.loader-logo span { font-style:normal; }
+.loader-sub { margin-top:6px; font-size:14px; letter-spacing:6px; opacity:.8; }
+.loader-bar { margin-top:36px; width:min(420px,70vw); height:8px; border-radius:4px; background:rgba(255,255,255,.15); overflow:hidden; }
+#loader-fill { height:100%; width:0%; background:linear-gradient(90deg,#00e5ff,#ff2d78); transition:width .2s; }
+#loader-status { margin-top:12px; font-size:13px; opacity:.7; }
+#btn-start { margin-top:28px; padding:16px 60px; font-size:22px; font-weight:800; border:none; border-radius:40px; cursor:pointer;
+  background:linear-gradient(90deg,#00e5ff,#3d8bff); color:#001; box-shadow:0 0 30px rgba(0,229,255,.5); }
+
+/* HUD */
+#hud { position:fixed; inset:0; pointer-events:none; z-index:10; }
+#hud-top-left { position:absolute; top:calc(10px + env(safe-area-inset-top)); left:14px; }
+#money { font-size:26px; font-weight:800; color:#3dff7a; text-shadow:0 2px 6px #000; font-style:italic; }
+#wanted-stars { font-size:22px; letter-spacing:2px; margin-top:2px; filter:drop-shadow(0 2px 4px #000); }
+#wanted-stars span { color:#222; }
+#wanted-stars span.on { color:#ffd23d; }
+#hud-top-right { position:absolute; top:calc(10px + env(safe-area-inset-top)); right:14px; text-align:right; color:#fff; text-shadow:0 1px 3px #000; }
+#fps { font-size:14px; font-weight:700; color:#9f9; }
+#quality-tag { font-size:11px; opacity:.6; margin-top:2px; }
+#minimap-wrap { position:absolute; left:14px; bottom:calc(14px + env(safe-area-inset-bottom));
+  width:150px; height:150px; border-radius:50%; border:3px solid rgba(255,255,255,.75); overflow:hidden; box-shadow:0 4px 18px rgba(0,0,0,.6); }
+#minimap { display:block; }
+#speedo { position:absolute; right:20px; bottom:calc(20px + env(safe-area-inset-bottom)); color:#fff; text-align:center;
+  text-shadow:0 2px 6px #000; background:rgba(0,0,0,.35); border-radius:14px; padding:8px 16px; }
+#speed-val { font-size:40px; font-weight:900; font-style:italic; color:#00e5ff; }
+#speed-unit { font-size:12px; opacity:.7; }
+#interact-hint { position:absolute; left:50%; top:62%; transform:translateX(-50%); color:#fff; background:rgba(0,0,0,.55);
+  padding:8px 18px; border-radius:20px; font-size:15px; }
+#mission-toast { position:absolute; left:50%; top:14%; transform:translateX(-50%); max-width:80vw; text-align:center;
+  color:#ffd23d; font-weight:800; font-size:18px; text-shadow:0 2px 8px #000; background:rgba(0,0,0,.45); padding:10px 22px; border-radius:12px; }
+#healthbar { position:absolute; left:50%; bottom:calc(12px + env(safe-area-inset-bottom)); transform:translateX(-50%);
+  width:min(300px,50vw); height:8px; background:rgba(0,0,0,.5); border-radius:4px; overflow:hidden; }
+#healthfill { height:100%; width:100%; background:linear-gradient(90deg,#ff4d6d,#3dff7a); transition:width .3s; }
+
+/* Touch */
+#touch-controls { position:fixed; inset:0; pointer-events:none; z-index:20; }
+#stick-base { position:absolute; left:6vw; bottom:calc(18vh); width:130px; height:130px; border-radius:50%;
+  background:rgba(255,255,255,.08); border:2px solid rgba(255,255,255,.25); pointer-events:auto; }
+#stick-knob { position:absolute; left:50%; top:50%; width:56px; height:56px; margin:-28px; border-radius:50%;
+  background:rgba(255,255,255,.35); }
+.tbtn { position:absolute; width:74px; height:74px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:28px; color:#fff; background:rgba(255,255,255,.12); border:2px solid rgba(255,255,255,.3); pointer-events:auto; user-select:none; }
+.tbtn:active { background:rgba(0,229,255,.4); }
+.tbtn.small { width:54px; height:54px; font-size:20px; }
+#btn-jump { right:calc(6vw + 96px); bottom:calc(18vh - 20px); }
+#btn-action { right:6vw; bottom:calc(18vh + 70px); }
+#btn-fps { right:6vw; bottom:calc(18vh - 10px); }
